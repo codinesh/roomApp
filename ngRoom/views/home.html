@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Application</title>
+    <meta charset="utf-8" />
+    <script src="../lib/angular.js"></script>
+    <script src="../lib/angular-route.js"></script>
+
+    <script src="../scripts/app.js"></script>
+    <script src="../scripts/controllers/roommatesController.js"></script>
+
+    <link href="../styles/home.css" rel="stylesheet" />
+</head>
+<body ng-app="roomApp">
+    <nav>
+        <a href="#/addPerson">home</a>
+    </nav>
+    <section class="homeController" ng-controller="homeController">
+        <section class="members">
+            <div class="member" ng-repeat="person in persons" ng-click="markCurrent(person)">
+                <img src="https://cdn3.iconfinder.com/data/icons/users-6/100/3-512.png" />
+                <span ng-bind="person.name"></span>
+            </div>
+        </section>
+    </section>
+    <ng-view></ng-view>
+</body>
+</html>

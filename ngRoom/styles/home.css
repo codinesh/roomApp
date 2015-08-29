@@ -1,0 +1,19 @@
+﻿.members {
+    display: flex;
+    flex-direction: row;
+}
+
+.member {
+    margin: 10px;
+    padding:10px;
+    padding-bottom:0;
+    background-color:lightgrey;
+}
+
+    .member:hover {
+        cursor:pointer;
+    }
+
+    .member img {
+        max-height: 50px;
+    }
