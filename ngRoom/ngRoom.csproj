@@ -70,6 +70,7 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\roommatesController.js" />
     <Content Include="lib\angular.js" />
+    <Content Include="scripts\services\personService.js" />
     <Content Include="styles\home.css" />
     <Content Include="views\home.html" />
     <Content Include="views\templates\personDetail.html" />

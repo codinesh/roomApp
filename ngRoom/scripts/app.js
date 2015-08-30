@@ -8,12 +8,12 @@
                 templateUrl: 'templates/addPerson.html',
                 controller: 'personController'
             }).
-            when('/person', {
+            when('/person/:id', {
                 templateUrl: 'templates/addPerson.html',
                 controller: 'personController'
             }).
 
-            otherwise('', {
+            otherwise({
                 redirectTo: 'home.html',
             });
 

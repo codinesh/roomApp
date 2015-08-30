@@ -1,38 +1,24 @@
 ﻿/// <reference path="D:\Learning\TFS\GIT\LearningThings\ngRoom\ngRoom\lib/angular.js" />
 (function () {
     var app = angular.module("roomApp");
-    var persons = [{ name: "Dinesh" }, { name: "Naveen" }, { name: "Adithya" }];
+
     var curPerson = {};
-    app.controller("personController", ["$scope", "$filter", function ($scope, $filter) {
+    app.controller("personController", ["$scope", "$filter", "personService", function ($scope, $filter, personService) {
         var sc = $scope;
-        sc.persons = persons;
+        sc.persons = personService.getPersons();
         sc.temp = {};
         sc.curPerson = curPerson;
         sc.addPerson = function (name) {
-            if (existsInArray(name)) {
-                persons.push({ name: name });
-                sc.temp.PersonName = null;
-            }
-            else {
-
-            }
-        }
-
-        var existsInArray = function (value) {
-            var found = $filter('filter')($scope.persons, { name: value }, false);
-            if (found.length) {
-                return false;
-            }
-            else
-                return true;
+            personService.addPerson({ name: name });
         }
     }]).
-    controller("homeController", ["$scope", "$filter", function ($scope, $filter) {
+    controller("homeController", ["$scope", "$filter", "$location", "personService", function ($scope, $filter, $location, personService) {
         var sc = $scope;
-        sc.persons = persons;
+        sc.persons = personService.getPersons();
 
-        var markCurrent = function (item) {
-            curPerson = item;
+        var markCurrent = function (person) {
+            personService.setCurPerson(person);
+            $location.url('personDetail/' + person.id);
         };
     }]);
 }());
