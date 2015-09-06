@@ -1,9 +1,13 @@
 ﻿.members {
-    display: flex;
+    display: flexbox;
     flex-direction: row;
 }
 
 .member {
+    max-width:100px;
+    max-height:80px;
+    text-overflow:ellipsis;
+    overflow:hidden;
     margin: 10px;
     padding:10px;
     padding-bottom:0;
@@ -17,3 +21,22 @@
     .member img {
         max-height: 50px;
     }
+
+
+.typeahead {
+    height: 40px;
+    width: 100%;
+    max-height: 40px;
+    display: flexbox;
+    flex-direction: column;
+}
+    .typeahead:hover {
+        cursor: pointer;
+    }
+.typeahead img {
+    max-height: 30px;
+}
+
+.dropdown-menu {
+    border-radius:100px;
+}

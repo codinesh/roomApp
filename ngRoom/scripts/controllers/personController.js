@@ -10,15 +10,11 @@
         sc.curPerson = curPerson;
         sc.addPerson = function (name) {
             personService.addPerson({ name: name });
-        }
-    }]).
-    controller("homeController", ["$scope", "$filter", "$location", "personService", function ($scope, $filter, $location, personService) {
-        var sc = $scope;
-        sc.persons = personService.getPersons();
-
-        var markCurrent = function (person) {
-            personService.setCurPerson(person);
-            $location.url('personDetail/' + person.id);
+            sc.temp.PersonName = null;
         };
-    }]);
+
+        sc.markCurrent = function (person) {
+           curPerson = person;
+        };
+    }])
 }());

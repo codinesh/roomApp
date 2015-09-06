@@ -1,18 +1,16 @@
-﻿/// <reference path="D:\Learning\TFS\GIT\LearningThings\ngRoom\ngRoom\lib/angular.js" />
-(function () {
+﻿(function () {
 
     var app = angular.module("roomApp");
 
-    app.service("personService", function () {
+    app.service("personService", ["$filter", function ($filter) {
         var persons = [{ name: "Dinesh", id: 1 }, { name: "Naveen", id: 2 }, { name: "Adithya", id: 3 }];
 
         var getPersons = function () {
             return persons;
         }
         var addPerson = function (newPerson) {
-            if (existsInArray(name)) {
-                persons.push({ name: name });
-                sc.temp.PersonName = null;
+            if (!existsInArray(newPerson.name)) {
+                persons.push({ name: newPerson.name, id: persons.lenght + 1 });
             }
             else {
 
@@ -20,8 +18,8 @@
         }
 
         var existsInArray = function (value) {
-            var found = $filter('filter')($scope.persons, { name: value }, false);
-            if (found.length) {
+            var found = $filter('filter')(persons, { name: value }, false);
+            if (found.length == 0) {
                 return false;
             }
             else
@@ -43,5 +41,5 @@
             getCurPerson: getCurPerson,
             setCurPerson: setCurPerson
         };
-    });
+    }]);
 }());
