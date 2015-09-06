@@ -4,7 +4,7 @@
 
     app.service("personService", ["$filter", function ($filter) {
         var persons = [{ name: "Dinesh", id: 1 }, { name: "Naveen", id: 2 }, { name: "Adithya", id: 3 }];
-
+        var curPerson;
         var getPersons = function () {
             return persons;
         }
@@ -16,7 +16,6 @@
 
             }
         }
-
         var existsInArray = function (value) {
             var found = $filter('filter')(persons, { name: value }, false);
             if (found.length == 0) {
@@ -25,15 +24,12 @@
             else
                 return true;
         }
-
-        var curPerson;
         var getCurPerson = function () {
             return curPerson;
         }
         var setCurPerson = function (curPerson) {
             this.curPerson = curPerson;
         }
-
         return {
             getPersons: getPersons,
             addPerson: addPerson,

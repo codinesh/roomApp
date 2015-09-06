@@ -9,7 +9,6 @@
     <script src="../lib/angular-route.js"></script>
     <script src="../lib/ui-bootstrap-0.13.4.js"></script>
     <!--<script src="../lib/bootstrap-3.3.5/js/bootstrap.js"></script>-->
-
     <!--app bootstrap-->
     <script src="../scripts/app.js"></script>
 
@@ -24,32 +23,30 @@
     <link href="../lib/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body ng-app="roomApp" class="container">
-    <nav>
-        <a href="#/addPerson">home</a>
-    </nav>
-   
     <script type="text/ng-template" id="typeaheadTemplate.html">
-      <a class="typeahead">
-          <span ng-Bind-Html ="match.label | typeaheadHighlight:query"></span>
-          <span ng-Bind-Html ="match.label | typeaheadHighlight:query"></span>
-          <span ng-Bind-Html ="match.label | typeaheadHighlight:query"></span>
-          
-          <span ng-Bind-Html ="match.label | typeaheadHighlight:query"></span>
-      </a>
-    </script>   
+        <a class="typeahead">
+            <span ng-Bind-Html="match.label | typeaheadHighlight:query"></span>
+            <span ng-Bind-Html="match.label | typeaheadHighlight:query"></span>
+            <span ng-Bind-Html="match.label | typeaheadHighlight:query"></span>
+            <span ng-Bind-Html="match.label | typeaheadHighlight:query"></span>
+        </a>
+    </script>
 
-    <section class="typeahead">
-        <span >One</span>
-        <span >Two</span>
-        <span >Three</span>
+    <nav>
+        <a href="#/addPerson">Add</a>
+        <a href="#">Home</a>
+    </nav>
+
+    <section class="personController" ng-controller="personController">
+        <section class="members">
+            <div class="member" ng-repeat="person in persons" ng-click="markCurrent(person)">
+                <img src="https://cdn3.iconfinder.com/data/icons/users-6/100/3-512.png" />
+                <span href="#" ng-bind="person.name"></span>
+            </div>
+        </section>
+        <section class="details">
+            <ng-view></ng-view>
+        </section>
     </section>
-
-    <section class="practice container-fluid" ng-controller="homeController">
-        <input type="text" placeholder="search provider..." ng-model="tmp.providerName" class="form-control"
-            typeahead-template-url="typeaheadTemplate.html"
-            typeahead="person.name for person in persons | filter:$viewValue | limitTo:8"/>
-    </section>
-
-    <ng-view></ng-view>
 </body>
 </html>

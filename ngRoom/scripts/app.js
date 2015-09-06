@@ -4,10 +4,6 @@
 
     app.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.
-            when('/persons', {
-                templateUrl: 'templates/persons.html',
-                controller: 'personController'
-            }).
             when('/addPerson', {
                 templateUrl: 'templates/addPerson.html',
                 controller: 'personController'
@@ -16,11 +12,9 @@
                 templateUrl: 'templates/personDetail.html',
                 controller: 'personController'
             }).
-
             otherwise({
-                redirectTo: 'home.html',
+                redirectTo: '',
             });
-
         //$locationProvider.html5Mode(true);
     }]);
 }());

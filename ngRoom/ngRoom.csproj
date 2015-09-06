@@ -84,12 +84,10 @@
     <Content Include="lib\ui-bootstrap-0.13.4.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\personController.js" />
-    <Content Include="scripts\controllers\homeController.js" />
     <Content Include="lib\angular.js" />
     <Content Include="scripts\services\personService.js" />
     <Content Include="scripts\_references.js" />
     <Content Include="styles\home.css" />
-    <Content Include="views\templates\persons.html" />
     <Content Include="views\home.html" />
     <Content Include="views\templates\personDetail.html" />
     <Content Include="views\templates\addPerson.html" />
